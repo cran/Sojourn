@@ -1,0 +1,24 @@
+citHeader("To cite package `Sojourn` in publications use:")
+
+citEntry(
+  entry        = "Misc",
+  title        = paste(
+      "Sojourn: Apply Sojourn methods for processing",
+      "ActiGraph accelerometer data"
+  ),
+  author       = personList(
+      as.person("Paul R. Hibbing"),
+      as.person("Kate Lyden"),
+      as.person("Isaac J. Schwabacher")
+  ),
+  year         = "2019",
+  url          = "https://cran.r-project.org/package=Sojourn",
+
+  textVersion  =
+  paste(
+    "Paul R. Hibbing, Kate Lyden, & Isaac J. Schwabacher (2019).",
+    "Sojourn: Apply Sojourn methods for processing",
+    "ActiGraph accelerometer data.",
+    "URL: https://cran.r-project.org/package=Sojourn."
+  )
+)
