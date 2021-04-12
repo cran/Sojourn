@@ -4,8 +4,15 @@
 \alias{soj_1x_original}
 \title{Invoke the original uni-axial Sojourn method}
 \usage{
-soj_1x_original(counts, perc.cut = 0.05, perc.cut.2 = 0.12,
-  perc.cut.3 = 0.55, too.short = 10, sit.cut = 90, long.soj = 120)
+soj_1x_original(
+  counts,
+  perc.cut = 0.05,
+  perc.cut.2 = 0.12,
+  perc.cut.3 = 0.55,
+  too.short = 10,
+  sit.cut = 90,
+  long.soj = 120
+)
 }
 \arguments{
 \item{counts}{numeric vector of vertical axis counts}
@@ -26,12 +33,12 @@ soj_1x_original(counts, perc.cut = 0.05, perc.cut.2 = 0.12,
 a data frame of processed data
 }
 \description{
-Calls the uni-axial Sojourn method from \href{https://www.ncbi.nlm.nih.gov/pubmed/23860415}{Lyden et al. (2014)}.
+Calls the uni-axial Sojourn method from \href{https://pubmed.ncbi.nlm.nih.gov/23860415/}{Lyden et al. (2014)}.
 }
 \examples{
 data(example_data, package = "Sojourn")
-results_1x <- soj_1x_original(example_data$axis1)
-
-head(results_1x)
-
+if (isTRUE(requireNamespace("Sojourn.Data"))) {
+  results_1x <- soj_1x_original(example_data$axis1)
+  utils::head(results_1x)
+}
 }

@@ -1,7 +1,7 @@
 #' Find transitions
 #'
 #' Examine a data stream for qualifying transitions according to the
-#' \href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}
+#' \href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}
 #'
 #' @param y the data stream to examine
 #'
@@ -185,7 +185,7 @@ SIP_frame_test <- function(
 #' Combine ActiGraph and activPAL data
 #'
 #' Merge data streams for separate monitors in the
-#' \href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}
+#' \href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}
 #'
 #' @param ag ActiGraph data
 #' @param ap activPAL data
@@ -197,7 +197,7 @@ SIP_frame_test <- function(
 #' data(SIP_ag, package = "Sojourn")
 #' data(SIP_ap, package = "Sojourn")
 #' combined_data <- enhance_actigraph(SIP_ag, SIP_ap)
-#' head(combined_data)
+#' utils::head(combined_data)
 enhance_actigraph <- function(ag,ap, verbose = FALSE) {
 
   ag <- SIP_frame_test(
@@ -212,8 +212,7 @@ enhance_actigraph <- function(ag,ap, verbose = FALSE) {
   )
 
   stopifnot(
-    lubridate::tz(ag$Timestamp) ==
-      lubridate::tz(ap$Time)
+    lubridate::tz(ag$Time) == lubridate::tz(ap$Time)
   )
 
   ap$ActivityBlocks <- cumsum(
@@ -242,7 +241,7 @@ enhance_actigraph <- function(ag,ap, verbose = FALSE) {
 #' Shape data for input into the neural networks
 #'
 #' Prepare data for use in the neural networks of the
-#' \href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}
+#' \href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}
 #'
 #' @param ag ActiGraph and activPAL combined data
 #' @param sojourns the Sojourns identified on the data

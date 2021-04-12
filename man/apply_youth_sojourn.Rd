@@ -4,8 +4,14 @@
 \alias{apply_youth_sojourn}
 \title{Apply the youth Sojourn method}
 \usage{
-apply_youth_sojourn(AG, vm = c("Vector.Magnitude", "ENMO"), Site = c("Hip",
-  "Wrist"), demo_interactive = FALSE, verbose = FALSE, ...)
+apply_youth_sojourn(
+  AG,
+  vm = c("Vector.Magnitude", "ENMO"),
+  Site = c("Hip", "Wrist"),
+  demo_interactive = FALSE,
+  verbose = FALSE,
+  ...
+)
 }
 \arguments{
 \item{AG}{a data frame of monitor and demographic data}
@@ -30,11 +36,11 @@ The original data frame, plus additional predictions made by the
 }
 \description{
 Function for using the youth Sojourn method developed by
-\href{https://www.ncbi.nlm.nih.gov/pubmed/29135657}{Hibbing et al. (2018)}
+\href{https://pubmed.ncbi.nlm.nih.gov/29135657/}{Hibbing et al. (2018)}
 }
 \note{
-The functions \link[AGread]{read_AG_counts} and
-  \link[AGread]{read_AG_raw} are recommended for assembling the
+The functions \code{AGread::read_AG_counts} and
+  \code{AGread::read_AG_raw} are recommended for assembling the
   monitor-specific portion of the \code{AG} data frame.
 }
 \examples{
@@ -46,7 +52,7 @@ The functions \link[AGread]{read_AG_counts} and
       vm = "Vector.Magnitude",
       Site = "Hip"
     )
-    head(results_youth_soj)
+    utils::head(results_youth_soj)
  }
  }
 

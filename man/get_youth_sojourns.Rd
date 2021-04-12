@@ -4,9 +4,16 @@
 \alias{get_youth_sojourns}
 \title{Label Sojourns in a data stream according to the youth-specific algorithm}
 \usage{
-get_youth_sojourns(vm, short = 30, Output = c("Counts", "Raw"),
-  Site = c("Hip", "Wrist"), epoch = 1, difference = 15, threshold = 100,
-  verbose = FALSE)
+get_youth_sojourns(
+  vm,
+  short = 30,
+  Output = c("Counts", "Raw"),
+  Site = c("Hip", "Wrist"),
+  epoch = 1,
+  difference = 15,
+  threshold = 100,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{vm}{vector of triaxial accelerometer values, either the vector
@@ -34,7 +41,7 @@ A data frame (with \code{nrow} equal to \code{length(vm)}) that gives
   sojourn labels and durations
 }
 \description{
-Identify Sojourns using the algorithm of \href{https://www.ncbi.nlm.nih.gov/pubmed/29135657}{Hibbing et al. (2018)}
+Identify Sojourns using the algorithm of \href{https://pubmed.ncbi.nlm.nih.gov/29135657/}{Hibbing et al. (2018)}
 }
 \examples{
 data(example_data, package = "Sojourn")

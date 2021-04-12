@@ -2,7 +2,7 @@
 % Please edit documentation in R/SIP_Soj_3x.R
 \name{sojourn_3x_SIP}
 \alias{sojourn_3x_SIP}
-\title{Triaxial Sojourn method for the \href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}}
+\title{Triaxial Sojourn method for the \href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}}
 \usage{
 sojourn_3x_SIP(ag, short = 30)
 }
@@ -14,16 +14,16 @@ transitions and make predictions}
 }
 \value{
 A data frame of processed data using the
-  \href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}
+  \href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}
 }
 \description{
-Triaxial Sojourn method for the \href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}
+Triaxial Sojourn method for the \href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}
 }
 \examples{
 data(SIP_ag, package = "Sojourn")
 data(SIP_ap, package = "Sojourn")
 data <- Sojourn::enhance_actigraph(SIP_ag, SIP_ap)
 if (isTRUE(requireNamespace("Sojourn.Data"))) {
-head(sojourn_3x_SIP(data))
+  utils::head(sojourn_3x_SIP(data))
 }
 }

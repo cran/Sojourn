@@ -1,7 +1,7 @@
 #' Apply the youth Sojourn method
 #'
 #' Function for using the youth Sojourn method developed by
-#' \href{https://www.ncbi.nlm.nih.gov/pubmed/29135657}{Hibbing et al. (2018)}
+#' \href{https://pubmed.ncbi.nlm.nih.gov/29135657/}{Hibbing et al. (2018)}
 #'
 #' @param AG a data frame of monitor and demographic data
 #' @param vm the variable to use for processing, either
@@ -17,8 +17,8 @@
 #' @return The original data frame, plus additional predictions made by the
 #'   Sojourn method
 #'
-#' @note The functions \link[AGread]{read_AG_counts} and
-#'   \link[AGread]{read_AG_raw} are recommended for assembling the
+#' @note The functions \code{AGread::read_AG_counts} and
+#'   \code{AGread::read_AG_raw} are recommended for assembling the
 #'   monitor-specific portion of the \code{AG} data frame.
 #' @export
 #'
@@ -31,7 +31,7 @@
 #'       vm = "Vector.Magnitude",
 #'       Site = "Hip"
 #'     )
-#'     head(results_youth_soj)
+#'     utils::head(results_youth_soj)
 #'  }
 #'  }
 #'
@@ -39,10 +39,11 @@ apply_youth_sojourn <- function(AG, vm = c("Vector.Magnitude", "ENMO"),
   Site = c("Hip", "Wrist"), demo_interactive = FALSE, verbose = FALSE, ...) {
 
   if (!requireNamespace("Sojourn.Data", quietly = TRUE)) {
-    stop(paste(
+    stop(
       "You must install the package `Sojourn.Data`",
-      "to use this function."
-    ))
+      "to use this function.\n  If it is missing on CRAN, use ",
+      "devtools::install_github(\"paulhibbing/Sojourn.Data\")"
+    )
   }
 
   ## Test Input
@@ -136,6 +137,10 @@ apply_youth_sojourn <- function(AG, vm = c("Vector.Magnitude", "ENMO"),
 
     first_names <- c("id", "Sex", "Age", "BMI")
     AG <- AG[ ,c(first_names, setdiff(names(AG), first_names))]
+
+    AG$is_sojourn_transition <- c(
+      0, diff(AG$sojourns)!=0
+    )
 
     return(AG)
 

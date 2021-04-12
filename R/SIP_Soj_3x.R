@@ -1,11 +1,11 @@
-#' Triaxial Sojourn method for the \href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}
+#' Triaxial Sojourn method for the \href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}
 #'
 #' @param ag combined ActiGraph and activPAL data on which to identify
 #'   transitions and make predictions
 #' @param short the minimum duration of a qualifying Sojourn
 #'
 #' @return A data frame of processed data using the
-#'   \href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}
+#'   \href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}
 #' @export
 #'
 #' @examples
@@ -13,15 +13,16 @@
 #' data(SIP_ap, package = "Sojourn")
 #' data <- Sojourn::enhance_actigraph(SIP_ag, SIP_ap)
 #' if (isTRUE(requireNamespace("Sojourn.Data"))) {
-#' head(sojourn_3x_SIP(data))
+#'   utils::head(sojourn_3x_SIP(data))
 #' }
 sojourn_3x_SIP <- function(ag, short = 30) {
 
   if (!requireNamespace("Sojourn.Data", quietly = TRUE)) {
-    stop(paste(
+    stop(
       "You must install the package `Sojourn.Data`",
-      "to use this function."
-    ))
+      "to use this function.\n  If it is missing on CRAN, use ",
+      "devtools::install_github(\"paulhibbing/Sojourn.Data\")"
+    )
   }
 
   y <- ag$counts

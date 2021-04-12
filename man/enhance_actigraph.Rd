@@ -15,11 +15,11 @@ enhance_actigraph(ag, ap, verbose = FALSE)
 }
 \description{
 Merge data streams for separate monitors in the
-\href{https://www.ncbi.nlm.nih.gov/pubmed/27015380}{SIP method}
+\href{https://pubmed.ncbi.nlm.nih.gov/27015380/}{SIP method}
 }
 \examples{
 data(SIP_ag, package = "Sojourn")
 data(SIP_ap, package = "Sojourn")
 combined_data <- enhance_actigraph(SIP_ag, SIP_ap)
-head(combined_data)
+utils::head(combined_data)
 }

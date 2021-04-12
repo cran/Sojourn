@@ -1,6 +1,6 @@
 #' Label Sojourns in a data stream according to the youth-specific algorithm
 #'
-#' Identify Sojourns using the algorithm of \href{https://www.ncbi.nlm.nih.gov/pubmed/29135657}{Hibbing et al. (2018)}
+#' Identify Sojourns using the algorithm of \href{https://pubmed.ncbi.nlm.nih.gov/29135657/}{Hibbing et al. (2018)}
 #'
 #' @param vm vector of triaxial accelerometer values, either the vector
 #'   magnitude for activity counts, or the Euclidian Norm Minus One for raw
@@ -30,10 +30,11 @@ get_youth_sojourns <- function(vm,short=30, Output = c("Counts", "Raw"),
   threshold = 100, verbose = FALSE) {
 
   if (!requireNamespace("Sojourn.Data", quietly = TRUE)) {
-    stop(paste(
+    stop(
       "You must install the package `Sojourn.Data`",
-      "to use this function."
-    ))
+      "to use this function.\n  If it is missing on CRAN, use ",
+      "devtools::install_github(\"paulhibbing/Sojourn.Data\")"
+    )
   }
 
   Output <- match.arg(Output, c("Counts", "Raw", "Error"))
@@ -101,10 +102,10 @@ get_youth_sojourns <- function(vm,short=30, Output = c("Counts", "Raw"),
 
   if (length(trans.inds)==0){
 
-    message(paste(
-      "All data fit within one Sojourn.",
+    message(
+      "All data fit within one Sojourn. ",
       "You should follow up with manual inspection."
-    ))
+    )
 
     trans.table <- data.frame(
       sojourns=1,
